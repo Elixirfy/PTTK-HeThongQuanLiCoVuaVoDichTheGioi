@@ -1,8 +1,6 @@
 package com.pttk.model;
 
-import java.io.Serializable;
-
-public class TVHT extends User implements Serializable {
+public class TVHT extends User {
     private static final long serialVersionUID = 1L;
     
     private String username;

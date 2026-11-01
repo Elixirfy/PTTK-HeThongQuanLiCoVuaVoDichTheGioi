@@ -1,8 +1,6 @@
 package com.pttk.model;
 
-import java.io.Serializable;
-
-public class BTC extends TVHT implements Serializable {
+public class BTC extends TVHT {
     private static final long serialVersionUID = 1L;
 
     public BTC() {
