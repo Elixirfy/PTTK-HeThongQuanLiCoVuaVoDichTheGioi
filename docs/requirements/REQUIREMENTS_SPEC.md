@@ -12,8 +12,8 @@
 Xây dựng phân hệ trang web phục vụ công tác quản lý thông tin giải đấu và cập nhật kết quả từng vòng đấu của giải vô địch cờ vua thế giới.
 
 ### 1.2. Phân loại Tác nhân (Actors)
-* **Khách / Người dùng (User)**: Tác nhân trừu tượng, có thể truy cập các trang công khai.
-* **Thành viên hệ thống (TVHT)**: Kế thừa từ `User`, sở hữu tài khoản xác thực. Có các chức năng: Đăng nhập, Đăng xuất, Đổi mật khẩu/Thông tin.
+* **Khách / Người dùng vãng lai (User - "Everyone")**: Đại diện cho bất kỳ ai truy cập vào website mà **không cần đăng nhập**, không có tài khoản và không cần bất kỳ quyền hạn nào. Quyền hạn duy nhất là truy cập tự do vào các trang công khai để tra cứu giải đấu và xem bảng xếp hạng kỳ thủ sau vòng đấu.
+* **Thành viên hệ thống (TVHT)**: Kế thừa từ `User`, sở hữu tài khoản xác thực (`username`, `password`). Có các chức năng: Đăng nhập, Đăng xuất, Đổi mật khẩu/Thông tin.
 * **Ban tổ chức (BTC)**: Kế thừa từ `TVHT`, có quyền thực thi nghiệp vụ quản lý giải đấu và nhập kết quả trận đấu.
 * **Kỳ thủ (KyThu)**: Kế thừa từ `TVHT`, đóng vai trò là đấu thủ tham gia các trận đấu trong giải.
 

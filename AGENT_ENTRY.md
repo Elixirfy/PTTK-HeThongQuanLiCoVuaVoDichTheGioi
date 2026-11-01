@@ -40,10 +40,14 @@
 
 ## 2. BẢN CHẤT DỰ ÁN & KIẾN TRÚC HỆ THỐNG (HIGH PRIORITY)
 
-### 2.1. Ngữ cảnh dự án
+### 2.1. Ngữ cảnh dự án & Phân loại Actor
 - **Học phần**: Phân tích và Thiết kế Hệ thống Thông tin (PTTK HTTT) - Học viện Công nghệ Bưu chính Viễn thông (PTIT).
 - **Quy trình áp dụng**: **Unified Process (UP / USDP)** (Use-case driven, Architecture-centric, Iterative).
 - **Đề tài**: Hệ thống quản lý giải cờ vua vô địch thế giới (Nhóm BTL N09, Lớp D23CTAT01-B, sinh viên Nguyễn Đức Ngọc B23DCAT215).
+- **Đặc tả thực thể User ("Everyone")**:
+  - `User` là thực thể đại diện cho người truy cập trang web thông thường (khách vãng lai, khán giả).
+  - **Không cần đăng nhập** và **không cần bất kỳ quyền hạn nào** (kiểu như `everyone`), được tự do xem thông tin công khai (giải đấu, bảng xếp hạng sau vòng đấu).
+  - `TVHT` kế thừa `User` mới cần tài khoản (username, password), từ đó phân nhánh thành `BTC` (Ban tổ chức) và `KyThu` (Kỳ thủ).
 
 ### 2.2. Kiến trúc Công nghệ (Tech Stack)
 - **Kiến trúc phần mềm**: **JSP Model 1 + DAO (JavaBean)** theo đúng giáo trình của bộ môn PTIT:
