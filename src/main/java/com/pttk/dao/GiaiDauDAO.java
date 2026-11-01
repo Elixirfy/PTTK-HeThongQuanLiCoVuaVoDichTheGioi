@@ -13,7 +13,7 @@ public class GiaiDauDAO extends DAO {
     private static final List<GiaiDau> PRE_SEEDED_GIAI_DAU = new ArrayList<>();
 
     static {
-        PRE_SEEDED_GIAI_DAU.add(new GiaiDau(4, 2024, "Classical", 1, "Geneva, Thụy Sĩ", "Kết thúc", "Giải đấu vòng loại số 1 quốc tế", Date.valueOf("2024-05-10"), Date.valueOf("2024-05-25")));
+        PRE_SEEDED_GIAI_DAU.add(new GiaiDau(4, 2024, "Classical", 1, "Geneva, Thụy Sĩ", "Kết thúc", "Giải đấu vòng loại số 1 quốc tế", Date.valueOf("2024-05-01"), Date.valueOf("2024-05-15")));
         PRE_SEEDED_GIAI_DAU.add(new GiaiDau(5, 2024, "Classical", 2, "Geneva, Thụy Sĩ", "Kết thúc", "Giải đấu đầu tiên trong 20 năm không do Carlsen vô địch", Date.valueOf("2024-09-10"), Date.valueOf("2024-09-25")));
         PRE_SEEDED_GIAI_DAU.add(new GiaiDau(6, 2024, "Rapid & Blitz", 1, "Geneva, Thụy Sĩ", "Kết thúc", "Giải cờ nhanh & cờ chớp", Date.valueOf("2024-12-01"), Date.valueOf("2024-12-10")));
         PRE_SEEDED_GIAI_DAU.add(new GiaiDau(10, 2026, "Classical", 1, "Geneva, Thụy Sĩ", "Kết thúc", "Giải mở màn mùa giải 2026", Date.valueOf("2026-03-01"), Date.valueOf("2026-03-15")));

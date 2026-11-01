@@ -46,7 +46,7 @@ CREATE TABLE `tblKyThu` (
     `DOB` DATE NULL,
     `quocTich` VARCHAR(100) NOT NULL,
     `heSoThang` INT NOT NULL DEFAULT 10,
-    `ELO` INT NOT NULL DEFAULT 1500,
+    `ELO` FLOAT NOT NULL DEFAULT 1500.0,
     CONSTRAINT `fk_kythu_tvht` FOREIGN KEY (`Userid`) REFERENCES `tblTVHT` (`Userid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -108,24 +108,36 @@ CREATE TABLE `tblKyThuThamGiaTranDau` (
 -- ====================================================================
 
 -- 1. Nạp Tài khoản TVHT & BTC
-INSERT INTO `tblUser` (`id`) VALUES (1), (2), (3), (101), (102), (103), (104);
+INSERT INTO `tblUser` (`id`) VALUES (1), (2), (3), (101), (102), (103), (104), (105), (106), (107), (108), (109), (110);
 
 INSERT INTO `tblTVHT` (`Userid`, `username`, `password`, `chucVu`, `hoTen`, `email`, `note`) VALUES
 (1, 'btc1', 'mk123@', 'Ban tổ chức', 'Nguyễn Đức Ngọc', 'ngoc.nd@fide.org', 'Trưởng ban điều hành giải đấu'),
 (2, 'btc2', '123456', 'Ban tổ chức', 'Nguyễn Đức Mạnh', 'manh.nd@fide.org', 'Phó ban điều hành'),
 (3, 'admin', 'admin123', 'Ban tổ chức', 'Nguyễn Hoàng Nam', 'nam.nh@fide.org', 'Quản trị viên hệ thống'),
-(101, 'carlsen', 'player123', 'Kỳ thủ', 'Magnus Carlsen', 'carlsen@chess.com', 'Đại kiện tướng số 1 thế giới'),
+(101, 'carlsen', 'player123', 'Kỳ thủ', 'Magnus Carlsen', 'carlsen@chess.com', 'Đại kiện tướng Na Uy'),
 (102, 'nakamura', 'player123', 'Kỳ thủ', 'Hikaru Nakamura', 'hikaru@chess.com', 'Đại kiện tướng Hoa Kỳ'),
 (103, 'liren', 'player123', 'Kỳ thủ', 'Ding Liren', 'ding@chess.com', 'Đại kiện tướng Trung Quốc'),
-(104, 'gukesh', 'player123', 'Kỳ thủ', 'Gukesh Dommaraju', 'gukesh@chess.com', 'Đại kiện tướng Ấn Độ');
+(104, 'gukesh', 'player123', 'Kỳ thủ', 'Gukesh Dommaraju', 'gukesh@chess.com', 'Đại kiện tướng Ấn Độ'),
+(105, 'nepo', 'player123', 'Kỳ thủ', 'Ian Nepomniachtchi', 'ian@chess.com', 'Đại kiện tướng FIDE'),
+(106, 'caruana', 'player123', 'Kỳ thủ', 'Fabiano Caruana', 'caruana@chess.com', 'Đại kiện tướng Hoa Kỳ'),
+(107, 'firouzja', 'player123', 'Kỳ thủ', 'Alireza Firouzja', 'firouzja@chess.com', 'Đại kiện tướng Pháp'),
+(108, 'pragg', 'player123', 'Kỳ thủ', 'Praggnanandhaa R', 'pragg@chess.com', 'Đại kiện tướng Ấn Độ'),
+(109, 'abdusattorov', 'player123', 'Kỳ thủ', 'Nodirbek Abdusattorov', 'nodir@chess.com', 'Đại kiện tướng Uzbekistan'),
+(110, 'weiyi', 'player123', 'Kỳ thủ', 'Wei Yi', 'weiyi@chess.com', 'Đại kiện tướng Trung Quốc');
 
 INSERT INTO `tblBTC` (`Userid`) VALUES (1), (2), (3);
 
 INSERT INTO `tblKyThu` (`Userid`, `DOB`, `quocTich`, `heSoThang`, `ELO`) VALUES
-(101, '1990-11-30', 'Na Uy', 10, 2830),
-(102, '1987-12-09', 'Hoa Kỳ', 10, 2802),
-(103, '1992-10-24', 'Trung Quốc', 10, 2750),
-(104, '2006-05-29', 'Ấn Độ', 10, 2760);
+(101, '1990-11-30', 'Na Uy', 10, 2830.0),
+(102, '1987-12-09', 'Hoa Kỳ', 10, 2802.0),
+(103, '1992-10-24', 'Trung Quốc', 10, 2750.0),
+(104, '2006-05-29', 'Ấn Độ', 10, 2760.0),
+(105, '1990-07-14', 'FIDE', 10, 2770.0),
+(106, '1992-07-30', 'Hoa Kỳ', 10, 2805.0),
+(107, '2003-06-18', 'Pháp', 10, 2785.0),
+(108, '2005-08-10', 'Ấn Độ', 10, 2755.0),
+(109, '2004-09-18', 'Uzbekistan', 10, 2765.0),
+(110, '1999-06-02', 'Trung Quốc', 10, 2762.0);
 
 -- 2. Nạp Bàn đấu (Thiết kế phục vụ test chuỗi "11" theo ma trận Boundary Testing)
 INSERT INTO `tblBanDau` (`id`, `soBan`) VALUES
@@ -166,8 +178,21 @@ INSERT INTO `tblTranDau` (`id`, `trangThai`, `VongDauid`, `BanDauid`) VALUES
 (1104, 'Đang diễn ra', 105, 6), -- Bàn 111
 (1105, 'Đang diễn ra', 105, 7); -- Bàn 01
 
--- 6. Nạp Kỳ thủ tham gia trận TD1101 (Carlsen vs Nakamura trên Bàn 11)
+-- 6. Nạp Kỳ thủ tham gia các trận Vòng 5 (Mỗi bàn 1 cặp kỳ thủ duy nhất, không trùng lặp)
 INSERT INTO `tblKyThuThamGiaTranDau` (`id`, `kiVongThang`, `ketQuaDiem`, `eloTang`, `TranDauid`, `KyThuid`) VALUES
-(1, 0.54, NULL, NULL, 1101, 101), -- Carlsen (Elo 2830, kỳ vọng thắng 0.54)
-(2, 0.46, NULL, NULL, 1101, 102); -- Nakamura (Elo 2802, kỳ vọng thắng 0.46)
+-- Trận 1101: Carlsen (101) vs Nakamura (102) trên Bàn 11
+(1, 0.54, NULL, NULL, 1101, 101),
+(2, 0.46, NULL, NULL, 1101, 102),
+-- Trận 1102: Ding Liren (103) vs Gukesh (104) trên Bàn 110
+(3, 0.49, NULL, NULL, 1102, 103),
+(4, 0.51, NULL, NULL, 1102, 104),
+-- Trận 1103: Nepomniachtchi (105) vs Caruana (106) trên Bàn 011
+(5, 0.45, NULL, NULL, 1103, 105),
+(6, 0.55, NULL, NULL, 1103, 106),
+-- Trận 1104: Firouzja (107) vs Praggnanandhaa (108) trên Bàn 111
+(7, 0.54, NULL, NULL, 1104, 107),
+(8, 0.46, NULL, NULL, 1104, 108),
+-- Trận 1105: Abdusattorov (109) vs Wei Yi (110) trên Bàn 01
+(9, 0.50, NULL, NULL, 1105, 109),
+(10, 0.50, NULL, NULL, 1105, 110);
 

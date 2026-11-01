@@ -26,8 +26,8 @@
                         <span class="text-[11px] font-medium text-blue-200 tracking-wider uppercase block">Hệ thống Điều hành Giải đấu</span>
                     </div>
                 </a>
-                <a href="gdLogin.jsp" class="whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition">
-                    Đăng nhập Ban tổ chức
+                <a href="gdLogin.jsp" class="whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-lg text-xs font-semibold shadow-sm transition">
+                    Đăng nhập
                 </a>
             </div>
         </div>
@@ -50,11 +50,11 @@
         <div class="flex flex-col sm:flex-row gap-5 items-center justify-center">
             <a href="gdLogin.jsp" class="whitespace-nowrap px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2.5 text-base">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-                <span>Đăng nhập Ban tổ chức</span>
+                <span>Đăng nhập</span>
             </a>
-            <button type="button" disabled class="whitespace-nowrap px-8 py-4 bg-slate-200 text-slate-400 font-bold rounded-xl cursor-not-allowed border border-slate-300 flex items-center justify-center gap-2.5 text-base" title="Chức năng đang bảo trì theo chỉ đạo của giảng viên">
+            <button type="button" disabled class="whitespace-nowrap px-8 py-4 bg-slate-200 text-slate-400 font-bold rounded-xl cursor-not-allowed border border-slate-300 flex items-center justify-center gap-2.5 text-base">
                 <svg class="w-5 h-5 opacity-40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                <span>Bảng xếp hạng (Tạm hoãn)</span>
+                <span>Bảng xếp hạng</span>
             </button>
         </div>
     </main>

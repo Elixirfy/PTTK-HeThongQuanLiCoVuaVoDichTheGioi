@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập - FIDE World Chess</title>
+    <title>Đăng Nhập - FIDE World Chess</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body class="min-h-full flex flex-col text-slate-800">
+<body class="min-h-full flex flex-col text-slate-800 bg-[#f8fafc]">
 
     <!-- Top Navbar -->
     <nav class="bg-[#1e3a8a] text-white shadow-md sticky top-0 z-50">
@@ -26,50 +26,38 @@
                         <span class="text-[11px] font-medium text-blue-200 tracking-wider uppercase block">Hệ thống Điều hành Giải đấu</span>
                     </div>
                 </a>
-                <a href="gdCoBan.jsp" class="text-xs text-blue-200 hover:text-white">← Quay lại trang chủ</a>
+                <a href="gdCoBan.jsp" class="text-xs text-blue-200 hover:text-white">← Quay lại</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Content Form -->
-    <main class="flex-1 max-w-md w-full mx-auto px-4 py-12 flex flex-col justify-center">
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-200">
+    <main class="flex-1 max-w-md w-full mx-auto px-4 py-16 flex flex-col justify-center">
+        <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-md border border-slate-200">
             <div class="text-center mb-8">
-                <div class="w-14 h-14 bg-blue-100 text-[#1e3a8a] rounded-xl mx-auto flex items-center justify-center mb-4 shadow-inner">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                </div>
-                <h2 class="text-2xl font-bold text-[#1e3a8a]">Đăng Nhập Ban Tổ Chức</h2>
-                <p class="text-sm text-slate-500 mt-1">Xác thực quyền quản trị viên giải đấu</p>
+                <h2 class="text-2xl font-bold text-[#1e3a8a] tracking-tight">Đăng nhập</h2>
             </div>
 
-            <form action="doCheckLogin.jsp" method="POST" class="space-y-5">
+            <form action="doCheckLogin.jsp" method="POST" class="space-y-6">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Tên đăng nhập (Username)</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Tài khoản</label>
                     <input type="text" name="txtUsername" value="btc1" required
-                           class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                           class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm transition">
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Mật khẩu (Password)</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Mật khẩu</label>
                     <input type="password" name="pwdPassword" value="mk123@" required
-                           class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                           class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm transition">
                 </div>
-                <div class="pt-2 flex gap-3">
-                    <a href="gdCoBan.jsp" class="w-1/3 py-2.5 px-4 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-100 text-sm font-semibold transition text-center flex items-center justify-center">
-                        Hủy bỏ
+                <div class="pt-4 flex items-center justify-between">
+                    <a href="gdCoBan.jsp" class="text-sm font-medium text-slate-500 hover:text-slate-800 transition">
+                        Quay lại
                     </a>
-                    <button type="submit" class="w-2/3 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold transition shadow-md">
-                        Đăng nhập →
+                    <button type="submit" class="px-7 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-semibold transition shadow-sm hover:shadow">
+                        Đăng nhập
                     </button>
                 </div>
             </form>
-
-            <div class="mt-8 pt-5 border-t border-slate-100 text-xs text-slate-500 bg-slate-50 -mx-8 -mb-8 p-6 rounded-b-2xl">
-                <span class="font-bold text-slate-700 block mb-1">Tài khoản nạp sẵn kiểm thử:</span>
-                <div class="space-y-1 font-mono text-[11px] text-blue-800">
-                    <div>• <span class="font-bold">btc1</span> / mk123@ (Nguyễn Đức Ngọc - Trưởng ban)</div>
-                    <div>• <span class="font-bold">admin</span> / admin123 (Quản trị viên)</div>
-                </div>
-            </div>
         </div>
     </main>
 

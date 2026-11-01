@@ -58,7 +58,7 @@
 5. `gdChonVongDau.jsp` gọi `VongDauDAO.getVongDauCuaBTC(idGiaiDau)` lấy danh sách các vòng đấu và hiển thị lên bảng.
 6. BTC click chọn một vòng đấu có trạng thái `Đang diễn ra` $\rightarrow$ Trình duyệt chuyển sang `gdChonTranDau.jsp?idVongDau=...`. *(Nếu chọn vòng Chưa bắt đầu, trang chặn lại và thông báo lỗi)*.
 7. Tại `gdChonTranDau.jsp`, BTC nhập từ khóa Bàn đấu (ví dụ: `"11"`) và bấm "Tìm kiếm".
-8. `gdChonTranDau.jsp` đóng gói tiêu chí tìm kiếm và gọi `TranDauDAO.searchTranDauTheoBan(td)`.
+8. `gdChonTranDau.jsp` khởi tạo đối tượng `TranDau`, nạp thực thể `VongDau` vừa chọn vào qua setter `setVongDau(vd)`, nạp tiêu chí số bàn vào `BanDau` qua `setBanDau(bd)`, và gọi `TranDauDAO.searchTranDauTheoBan(td)`.
 9. `TranDauDAO` trả về danh sách các trận đấu trên bàn tương ứng.
 10. BTC click chọn một trận đấu cụ thể $\rightarrow$ Trình duyệt gọi `gdChiTietTranDau.jsp?idTranDau=...`.
 11. `gdChiTietTranDau.jsp` gọi `TranDauDAO.getChiTietTranDau(idTranDau)` lấy đầy đủ thông tin trận đấu, hai kỳ thủ và tính kỳ vọng thắng FIDE hiển thị cho BTC.

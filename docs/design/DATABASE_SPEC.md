@@ -78,7 +78,7 @@ Dựa trên biểu đồ lớp thực thể pha thiết kế, CSDL được chuy
 | `DOB` | `DATE` | `NULL` | Ngày tháng năm sinh |
 | `quocTich` | `VARCHAR(100)` | `NOT NULL` | Quốc tịch |
 | `heSoThang` | `INT` | `NOT NULL, DEFAULT 10` | Hệ số phát triển $K$ FIDE (cố định từ đầu giải) |
-| `ELO` | `INT` | `NOT NULL, DEFAULT 1500` | Hệ số Elo hiện tại của kỳ thủ |
+| `ELO` | `FLOAT` | `NOT NULL, DEFAULT 1500.0` | Hệ số Elo hiện tại của kỳ thủ (số thực float) |
 
 ### 2.5. Bảng `tblBanDau`
 | Cột | Kiểu dữ liệu | Ràng buộc | Mô tả |

@@ -121,7 +121,7 @@ Các lớp Java Bean chuẩn hóa thuộc tính và getter/setter:
 * **`User`**: `id` (int).
 * **`TVHT`** (extends `User`): `username`, `password`, `chucVu`, `hoTen`, `email`, `note`.
 * **`BTC`** (extends `TVHT`): Giữ nguyên các thuộc tính.
-* **`KyThu`** (extends `TVHT`): `DOB` (Date), `quocTich` (String), `heSoThang` (int), `ELO` (int).
+* **`KyThu`** (extends `TVHT`): `DOB` (Date), `quocTich` (String), `heSoThang` (int), `ELO` (float).
 * **`BanDau`**: `id` (int), `soBan` (String).
 * **`GiaiDau`**: `id` (int), `nam` (int), `variant` (String), `muaGiai` (int), `diaDiem` (String), `trangThai` (String), `note` (String), `ngayBatDau` (Date), `ngayKetThuc` (Date).
 * **`VongDau`**: `id` (int), `soVong` (int), `ngayThiDau` (Date), `trangThai` (String), `thoiGianBatDau` (Time), `thoiGianKetThuc` (Time), `giaiDau` (GiaiDau).

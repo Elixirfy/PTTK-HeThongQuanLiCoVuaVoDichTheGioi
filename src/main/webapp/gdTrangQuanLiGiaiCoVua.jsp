@@ -6,23 +6,21 @@
         response.sendRedirect("gdLogin.jsp");
         return;
     }
-    String tenNguoiDung = btc.getHoTen();
-    String chucVu = btc.getChucVu();
-    String email = btc.getEmail();
+    String displayName = btc.getHoTen() != null && !btc.getHoTen().isEmpty() ? btc.getHoTen() : (btc.getUsername() != null ? btc.getUsername() : "btc1");
 %>
 <!DOCTYPE html>
 <html lang="vi" class="h-full bg-slate-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng điều khiển Ban tổ chức - FIDE World Chess</title>
+    <title>Bảng điều khiển - FIDE World Chess</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body class="min-h-full flex flex-col text-slate-800">
+<body class="min-h-full flex flex-col text-slate-800 bg-[#f8fafc]">
 
     <!-- Top Navbar -->
     <nav class="bg-[#1e3a8a] text-white shadow-md sticky top-0 z-50">
@@ -37,81 +35,57 @@
                         <span class="text-[11px] font-medium text-blue-200 tracking-wider uppercase block">Hệ thống Điều hành Giải đấu</span>
                     </div>
                 </a>
-                <div class="flex items-center gap-4">
-                    <span class="text-xs text-blue-200">Xin chào: <b class="text-white"><%= tenNguoiDung %></b></span>
-                    <a href="gdCoBan.jsp" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold">Đăng xuất</a>
+                <div class="flex items-center gap-4 text-sm">
+                    <span>Xin chào, <b class="text-yellow-400 font-bold"><%= displayName %></b></span>
+                    <a href="gdCoBan.jsp" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm transition">Đăng xuất</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content Grid -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        <!-- Welcome Banner -->
-        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1e3a8a]">Bảng Điều Khiển Nghiệp Vụ</h2>
-            </div>
-            <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs px-4 py-2 rounded-xl font-medium shadow-sm">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Tài khoản: <span class="font-bold text-emerald-950"><%= tenNguoiDung %></span>
-            </div>
-        </div>
-
-        <!-- 3 Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <a href="gdTimKiemGiaiDau.jsp" class="group bg-white border-2 border-blue-500 rounded-2xl p-8 hover:bg-blue-50/50 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 bg-blue-100 text-[#1e3a8a] rounded-xl flex items-center justify-center mb-6 group-hover:scale-105 transition transform shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#1e3a8a] mb-2">Quản lý Giải Đấu</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Tìm kiếm giải đấu theo năm, xem danh sách và chỉnh sửa thông tin chi tiết các giải vô địch cờ vua thế giới.
-                    </p>
+    <!-- Main Content: -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 flex items-center justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+            
+            <!-- Card 1: Quản lí thông tin giải đấu -->
+            <a href="module1/gdTimKiemGiaiDau.jsp" class="group bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-8 sm:p-10 text-center flex flex-col items-center justify-center shadow-sm hover:shadow-md transition">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-105 transition">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
                 </div>
-                <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600 group-hover:text-blue-800">
-                    <span>Vào phân hệ quản lý</span>
-                    <span>→</span>
-                </div>
+                <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 mb-2 transition">Quản lí thông tin giải đấu</h3>
+                <p class="text-sm text-slate-500">
+                    Thêm, sửa, xóa các giải đấu
+                </p>
             </a>
 
-            <!-- Card 2 -->
-            <a href="gdChonVongDau.jsp" class="group bg-white border-2 border-blue-500 rounded-2xl p-8 hover:bg-blue-50/50 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 bg-indigo-100 text-indigo-900 rounded-xl flex items-center justify-center mb-6 group-hover:scale-105 transition transform shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-indigo-950 mb-2">Cập nhật Kết Quả</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Chọn vòng đấu đang diễn ra, tìm kiếm trận đấu theo bàn (test biên "11"), nhập điểm và tự động tính Elo FIDE.
-                    </p>
+            <!-- Card 2: Cập nhật kết quả vòng đấu -->
+            <a href="module2/gdTimKiemGiaiDau.jsp" class="group bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-8 sm:p-10 text-center flex flex-col items-center justify-center shadow-sm hover:shadow-md transition">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-105 transition">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
                 </div>
-                <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600 group-hover:text-blue-800">
-                    <span>Nhập điểm vòng đấu</span>
-                    <span>→</span>
-                </div>
+                <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 mb-2 transition">Cập nhật kết quả vòng đấu</h3>
+                <p class="text-sm text-slate-500">
+                    Nhập điểm, cập nhật kết quả từng trận
+                </p>
             </a>
 
-            <!-- Card 3 -->
-            <div class="bg-slate-100 border-2 border-slate-300 rounded-2xl p-8 text-slate-400 flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute top-4 right-4 bg-yellow-100 text-yellow-800 text-[10px] font-bold px-2.5 py-1 rounded-md">
-                    Tạm hoãn
+            <!-- Card 3: Xem bảng xếp hạng (Đang tạm hoãn theo chỉ đạo) -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-8 sm:p-10 text-center flex flex-col items-center justify-center shadow-sm opacity-70 cursor-not-allowed">
+                <div class="w-16 h-16 bg-slate-50 text-slate-400 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
                 </div>
-                <div>
-                    <div class="w-14 h-14 bg-slate-200 text-slate-400 rounded-xl flex items-center justify-center mb-6 opacity-60">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-500 mb-2">Bảng Xếp Hạng</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Xem bảng xếp hạng sau vòng đấu tính theo tổng điểm, điểm đối thủ đã gặp (Buchholz) và Elo.
-                    </p>
-                </div>
-                <div class="mt-8 pt-4 border-t border-slate-200 text-xs text-slate-400 font-medium">
-                    (Đang bảo trì theo chỉ đạo của GV)
-                </div>
+                <h3 class="text-xl font-bold text-slate-700 mb-2">Xem bảng xếp hạng</h3>
+                <p class="text-sm text-slate-500">
+                    Theo dõi BXH kì thủ sau mỗi vòng
+                </p>
             </div>
+
         </div>
     </main>
 

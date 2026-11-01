@@ -1,4 +1,18 @@
+# Tài liệu cá nhân & file Visual Paradigm / Word
 *.docx
-PTTKCoVua
-.gemini
-instructor_tutorials
+PTTKCoVua/
+Study/
+
+# Tài liệu và nhật ký của Agent
+AGENT_ENTRY.md
+backup-documentation/
+.gemini/
+instructor_tutorials/
+doc_plain_text.txt
+doc_text.xml
+*.log
+
+# Cấu hình IDE cá nhân
+.vscode/
+.idea/
+.DS_Store
